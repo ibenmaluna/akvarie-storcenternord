@@ -17,7 +17,7 @@ const fiskeinfo =  [
 
     {
        className: "fish3",
-        info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
+        info: "Jeg er en sergentfisk! Jeg har flotte blå og sorte striber. De hjælper mig med at gemme mig i vandet! Kan du tælle mine striber?",
         
     },
 
