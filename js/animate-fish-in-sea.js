@@ -73,7 +73,7 @@ document.querySelectorAll("." +fish.className).forEach((elem)=> {
 const regnbuefisk = document.querySelector("#regnbuefisk");
 const nemofisk = document.querySelector("#nemofisk");
 const blåfisk = document.querySelector("#blåfisk");
-const fladfisk = document.querySelector("#fladfisk");
+const søhest = document.querySelector("#søhest");
 
 
     /* Oprette lydobjekter */
@@ -106,11 +106,15 @@ const fladfisk = document.querySelector("#fladfisk");
         });
     }
 
-      if (fladfisk) {
-        fladfisk.addEventListener("click", () => {
-            fladfisk.play();
+      if (søhest) {
+        søhest.addEventListener("click", () => {
+            søhest.play();
         });
     }
+
+
+
+
 
     document.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('.scene');
