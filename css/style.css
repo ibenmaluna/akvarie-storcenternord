@@ -11,9 +11,6 @@
 :root {
 
    --font-body: 'Poppins', sans-serif;
-
-   /* Billede størrekser (px) */
-   --sun-size: 100px;
    --fish-w: 200px;
 
    /* Start /exit offset (px) */
@@ -37,7 +34,7 @@
 
 
 /* ---------------------------------------------------------
-   Scene
+   Scene toggle mellem åben og lukket kiste
 --------------------------------------------------------- */
 /* Kister */
 .kiste1, .kiste2 {
@@ -70,12 +67,6 @@
 }
 
 
-/* ---------------------------------------------------------
-   Baggrund (parallax)
-   - Brug vw i animationen: 0 → -100vw
-   - Sæt background-size til 100vw for at matche bevægelse
---------------------------------------------------------- */
-
 .bg {
    position:absolute;
    /* inset undersøges af den studerende - find ud af hvad den property gør i CSS */
@@ -97,13 +88,6 @@
 
 
 
-/* ---------------------------------------------------------
-   Biler
-   - px for selve billedstørrelsen
-   - vw/vh til placering og ALLE animationsafstande
---------------------------------------------------------- */
-
-/* fish1: venstre → højre (spejlvendt) */
 .fish1 {
   position: absolute;
   bottom: 50vh;
@@ -111,7 +95,6 @@
   max-width: 28vw;
   z-index: 1;
    left: calc(-1 * var(--off-fish1));
-  /* will-change: transform; */
   animation: fish1 10s linear infinite;
 }
 
@@ -120,7 +103,6 @@
   100% { transform: translateX(calc(100vw + var(--off-fish1))); }
 }
 
-/* fish2: venstre → højre (spejlvendt) */
 .fish2 {
   position: absolute;
   bottom: 20vh;
@@ -128,7 +110,6 @@
   max-width: 28vw;
   z-index: 1;
   right: calc(-1 * var(--off-fish2));
-  /* will-change: transform; */
   animation: fish2 12s linear infinite;
 }
 
@@ -141,8 +122,6 @@
 
 
 
-
-/* fish3: venstre → højre (spejlvendt) */
 .fish3 {
   position: absolute;
   bottom: 60vh;

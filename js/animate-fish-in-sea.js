@@ -112,6 +112,8 @@ const fladfisk = document.querySelector("#fladfisk");
         });
     }
 
+    // toggle mellem åben og lukket kiste
+    
     document.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('.scene');
   const lukketKiste = document.getElementById('lukketkiste');
