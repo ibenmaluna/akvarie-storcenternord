@@ -2,33 +2,29 @@
 
 // når man skal lave en liste (array) i javascript skal man lave skarp parantes
 //  her opbygger vi vores js datastruktur med arrayr indeholdene js objecter
-const carinfo =  [
+const fiskeinfo =  [
     {
-        className: "car1",
-        carBrand: "ford",
-        carModel: "mustang",
-        releaseYear: 1974,
-        // det er kun tekst der skal i anførelsestegn - ikke tal
-        color: "red",
-        fuelType: "diesel"
+        className: "fish1",
+        info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
+        
     },
 
     {
-        className: "car2",
-        carBrand: "VW",
-        carModel: "UP!",
-        releaseYear: 1980,
-        color: "blue",
-        fuelType: "Gas"
+       className: "fish2",
+        info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
+        
     },
 
     {
-        className: "car3",
-        carBrand: "Audi",
-        carModel: "policecar",
-        releaseYear: 2000,
-        color: "grey",
-        fuelType: "Hybrid"
+       className: "fish3",
+        info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
+        
+    },
+
+     {
+       className: "fish4",
+        info: "Denne fisk finder du oftest hvis du holder godt øje med sandbunden, den elsker nemlig at gemme sig",
+        
     },
 ];
 
@@ -37,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tooltip = document.getElementById("tooltip");
     // finder tooltip id attirubten fra DOM og gemmer i en variabel
 
-    // funktion der viser tooltip med bilinfo 
+    // funktion der viser tooltip med fiskeinfo 
     
     function showTooltip(html) {
         // tjekker om tooltip-elementet eksisterer i DOM´ en 
@@ -56,21 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // gennemløber alle bilobjekter i carinfo-JS-datastrukturen
-    carinfo.forEach((car)=> {
+    fiskeinfo.forEach((fish)=> {
         // finder alle DOM elementer med den aktuelle bil class attribut-navn (f.eks. car1,car2,car3)
-document.querySelectorAll("." +car.className).forEach((elem)=> {
+document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
 //   tilføjer en addeventlistener til hvert element som musen føres henover (mouseover)     
     elem.addEventListener("mouseover", ()=> {
                 // opretter en HTML-blok indeholdende bilens detaljer 
-                const carDetails = `
-                <strong>Brand:${car.carBrand}</strong><br>
-                    model: ${car.carModel}<br>
-                    releaseyear: ${car.releaseYear}<br>
-                    color: ${car.color}<br>
-                    fueltype: ${car.fuelType}<br>
-                `;
-                showTooltip(carDetails);
+              const fishDetails = `
+            <strong>${fish.info}</strong>
+`;
+                showTooltip(fishDetails);
 
             });
         });
@@ -78,11 +70,11 @@ document.querySelectorAll("." +car.className).forEach((elem)=> {
 
   /* Hente Alle DOM-elementer */
 
-    const getRedCar = document.querySelector("#redcar");
-    const getBlueCar = document.querySelector("#blueCar");
-    const getPoliceCar = document.querySelector("#policeCar");
-    const sun = document.querySelector(".sun");
-    const scene = document.querySelector(".scene");
+const regnbuefisk = document.querySelector("#regnbuefisk");
+const nemofisk = document.querySelector("#nemofisk");
+const blåfisk = document.querySelector("#blåfisk");
+const fladfisk = document.querySelector("#fladfisk");
+
 
     /* Oprette lydobjekter */
 
@@ -94,32 +86,51 @@ document.querySelectorAll("." +car.className).forEach((elem)=> {
     soundBlueCar.src = "../sound/blueCarSound.wav";
 
     /* Tjeck om den røde bil (getRedCar) med ID attributten "redcar" findes i DOM'en */
-    if (getRedCar) {
-        getRedCar.addEventListener("click", () => {
-            soundRedCar.play();
+    if (regnbuefisk) {
+        regnbuefisk.addEventListener("click", () => {
+            regnbuefisk.play();
         });
     }
 
     /* Tjeck om den Politibilen (getPoliceCar) med ID attributten "policecar" findes i DOM'en */
-    if (getPoliceCar) {
-        getPoliceCar.addEventListener("click", () => {
-            soundPoliceCar.play();
+    if (nemofisk) {
+        nemofisk.addEventListener("click", () => {
+            nemofisk.play();
         });
     }
 
     /* Tjeck om den blå bil (getBlueCar) med ID attributten "bluecar" findes i DOM'en */
-    if (getBlueCar) {
-        getBlueCar.addEventListener("click", () => {
-            soundBlueCar.play();
+    if (blåfisk) {
+        blåfisk.addEventListener("click", () => {
+            blåfisk.play();
         });
     }
 
-    if (sun && scene) {
-        sun.addEventListener("click", () => {
-            scene.classList.toggle("night");
+      if (fladfisk) {
+        fladfisk.addEventListener("click", () => {
+            fladfisk.play();
         });
-
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const scene = document.querySelector('.scene');
+  const lukketKiste = document.getElementById('lukketkiste');
+  const aabenKiste = document.getElementById('aabenkiste');
+
+  // Klik på lukket kiste → åben
+  if (lukketKiste && scene) {
+    lukketKiste.addEventListener('click', () => {
+      scene.classList.toggle('open');
+    });
+  }
+
+  // Klik på åben kiste → lukket igen
+  if (aabenKiste && scene) {
+    aabenKiste.addEventListener('click', () => {
+      scene.classList.toggle('open');
+    });
+  }
+});
 
 });
 
