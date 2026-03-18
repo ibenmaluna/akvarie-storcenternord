@@ -112,8 +112,7 @@ const søhest = document.querySelector("#søhest");
         });
     }
 
-    
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('.scene');
   const lukketKiste = document.getElementById('lukketkiste');
   const aabenKiste = document.getElementById('aabenkiste');
