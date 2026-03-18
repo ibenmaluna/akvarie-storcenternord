@@ -74,6 +74,8 @@ const regnbuefisk = document.querySelector("#regnbuefisk");
 const nemofisk = document.querySelector("#nemofisk");
 const blåfisk = document.querySelector("#blåfisk");
 const søhest = document.querySelector("#søhest");
+const kiste = document.querySelector("#kiste");
+
 
 
     /* Oprette lydobjekter */
@@ -112,26 +114,16 @@ const søhest = document.querySelector("#søhest");
         });
     }
 
- document.addEventListener('DOMContentLoaded', () => {
-  const scene = document.querySelector('.scene');
-  const lukketKiste = document.getElementById('lukketkiste');
-  const aabenKiste = document.getElementById('aabenkiste');
 
-  // Klik på lukket kiste → åben
-  if (lukketKiste && scene) {
-    lukketKiste.addEventListener('click', () => {
-      scene.classList.toggle('open');
+    kiste.addEventListener("click", function(){
+        if(kiste.src.endsWith("img/aaben-kiste.png")) {
+            kiste.src="img/lukket-kiste.png"
+        }
+        else{
+            kiste.src="img/aaben-kiste.png";
+        }
+      
     });
-  }
-
-  // Klik på åben kiste → lukket igen
-  if (aabenKiste && scene) {
-    aabenKiste.addEventListener('click', () => {
-      scene.classList.toggle('open');
-    });
-  }
-});
-
 });
 
   
