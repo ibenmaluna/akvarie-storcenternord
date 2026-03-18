@@ -112,8 +112,15 @@ const søhest = document.querySelector("#søhest");
         });
     }
 
+<<<<<<< HEAD
+
+
+
+
+=======
     // toggle mellem åben og lukket kiste
     
+>>>>>>> e0203ebbb59a32687508ad3d451d2d05e1a029a6
     document.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('.scene');
   const lukketKiste = document.getElementById('lukketkiste');
