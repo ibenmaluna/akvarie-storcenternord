@@ -146,7 +146,7 @@
   z-index: 1;
   left: calc(-1 * var(--off-fish4));
   will-change: transform;
-  animation: fish4 8s linear infinite;
+  animation: fish4 15s linear infinite;  
 }
 
 @keyframes fish4 {
