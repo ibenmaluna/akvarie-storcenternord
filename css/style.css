@@ -140,13 +140,18 @@
 
 .fish4 {
   position: absolute;
-  bottom: -3.4vh;
+  bottom: 70vh;
   width: var(--fish-w);
-  max-width: 28vw;
+  max-width: 10vw;
   z-index: 1;
   left: calc(-1 * var(--off-fish4));
   will-change: transform;
-  animation: var(--off-fish4) 8s linear infinite;
+  animation: fish4 8s linear infinite;
+}
+
+@keyframes fish4 {
+  0%   { transform: translateX(0) rotateY(180deg); }
+  100% { transform: translateX(calc(100vw + var(--off-fish4))) rotateY(180deg); }
 }
 
 .tang1 {
@@ -168,10 +173,6 @@ position: absolute;
 }
 
 
-@keyframes fish4 {
-  0%   { transform: translateX(0) rotateY(180deg); }
-  100% { transform: translateX(calc(100vw + var(--off-fish4))) rotateY(180deg); }
-}
 
 .tooltip {
    position: fixed;

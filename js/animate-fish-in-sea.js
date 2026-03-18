@@ -23,7 +23,7 @@ const fiskeinfo =  [
 
      {
        className: "fish4",
-        info: "Denne fisk finder du oftest hvis du holder godt øje med sandbunden, den elsker nemlig at gemme sig",
+        info: "Et sjovt fact omkring søshesten som du måske ikke vidste, er at det er den mandlige søhest der bærer børnene",
         
     },
 ];
@@ -73,7 +73,7 @@ document.querySelectorAll("." +fish.className).forEach((elem)=> {
 const regnbuefisk = document.querySelector("#regnbuefisk");
 const nemofisk = document.querySelector("#nemofisk");
 const blåfisk = document.querySelector("#blåfisk");
-const fladfisk = document.querySelector("#fladfisk");
+const søhest = document.querySelector("#søhest");
 
 
     /* Oprette lydobjekter */
@@ -106,9 +106,9 @@ const fladfisk = document.querySelector("#fladfisk");
         });
     }
 
-      if (fladfisk) {
-        fladfisk.addEventListener("click", () => {
-            fladfisk.play();
+      if (søhest) {
+        søhest.addEventListener("click", () => {
+            søhest.play();
         });
     }
 
