@@ -1,20 +1,23 @@
 /* ---------------------------------------------------------
-   Import af font
-   Henter skifttypen "Fredoka" fra Google Fonts
+Import af font
+Henter skifttypen "Fredoka" fra Google Fonts
 --------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
 /* ---------------------------------------------------------
-   Root-variabler
-   - px: billedstørrelser, offsets
-   - farver + font
+Root-variabler
+- px: billedstørrelser, offsets
+- farver + font
 --------------------------------------------------------- */
 :root {
 
+    /* Standard font */
    --font-body: 'Fredoka', sans-serif;
+  
+   /* Standard bredde på fisk */
    --fish-w: 200px;
 
-   /* Start /exit offset (px) */
+   /* Start-positioner (udenfor skærmen)(px) */
    --off-fish1: 200px;
    --off-fish2: 200px;
    --off-fish3: 200px;
@@ -26,7 +29,8 @@
 
 
 /* ---------------------------------------------------------
-   Global reset
+Global reset
+Fjerner standard margin/padding fra browser
 --------------------------------------------------------- */
 * {
    margin: 0;
@@ -37,17 +41,33 @@
 
 
 /* ---------------------------------------------------------
-   Scene toggle mellem åben og lukket kiste
+Scene toggle(skift) mellem åben og lukket kiste    
+Kiste (åben/lukke)
+Styrer placering og synlighed   
 --------------------------------------------------------- */
 /* Kister */
 .kiste1, .kiste2 {
-  position: absolute;
+  /* Placeres frit ovenpå scenen */
+  position: absolute; 
+  
+  /* 10% op fra bunden */
   bottom: 10vh;
+  
   left: 50%;
+  
+  /* Centrerer horisontalt */
   transform: translateX(-50%);
+  
+  /* Responsiv størrelse */
   width: 15vw;
+  
+  /* Viser at den er klikbar */
   cursor: pointer;
+  
+  /* Blød overgang */
   transition: opacity 0.3s;
+ 
+  /* Ligger over fisk */
   z-index: 10; /* sikrer at de ligger over fisk/tang */
 }
 
@@ -60,7 +80,7 @@
   opacity: 0; 
 }
 
-/* Når scenen har class "open", skiftes billederne */
+/* Når scenen har class "open", byttes billederne */
 .scene.open #lukketkiste { 
   opacity: 0; 
 }
@@ -69,34 +89,42 @@
   opacity: 1; 
 }
 
-
+/* ---------------------------------------------------------
+Baggrund (havet)   
+--------------------------------------------------------- */
 .bg {
    position:absolute;
-   /* inset undersøges af den studerende - find ud af hvad den property gør i CSS */
+   /* inset: 0 betyder top, right, bottom, left = 0 */
+   /* Elementet fylder hele sin container */
    inset: 0;
    width: 100%;
    height: 100vh;
+
+   /* Baggrundsbillede */
    background: url(../img/hav-baggrund.png);
    background-size: cover;
    background-repeat: no-repeat;
 }
 
-/* Flyt hele flisen/vejen en view-port til venstre */
+/* ---------------------------------------------------------
+Baggrunds animation (scroll effekt)  
+--------------------------------------------------------- */
 @keyframes animateBg {
    0% { background-position-x: 0;}
    100% {background-position-x: -100vw;}
 }
 
-
-
-
-
+/* ---------------------------------------------------------
+Fisk 1 (bevæger sig fra venstre til højre) 
+--------------------------------------------------------- */
 .fish1 {
   position: absolute;
   bottom: 50vh;
   width: var(--fish-w);
   max-width: 28vw;
   z-index: 1;
+
+  /* Starter udenfor skærmen til venstre */
    left: calc(-1 * var(--off-fish1));
   animation: fish1 10s linear infinite;
 }
@@ -106,6 +134,9 @@
   100% { transform: translateX(calc(100vw + var(--off-fish1))); }
 }
 
+/* ---------------------------------------------------------
+Fisk 2 (bevæger sig fra højre til venstre)  
+--------------------------------------------------------- */
 .fish2 {
   position: absolute;
   bottom: 20vh;
@@ -121,9 +152,9 @@
   100% { transform: translateX(calc(-100vw - var(--off-fish2))) rotateY(180deg); }
 }
 
-
-
-
+/* ---------------------------------------------------------
+Fisk 3 (hurtigere bevægelse) 
+--------------------------------------------------------- */
 .fish3 {
   position: absolute;
   bottom: 60vh;
@@ -131,6 +162,8 @@
   max-width: 20vw;
   z-index: 2;
   left: calc(-1 * var(--off-fish3));
+  
+  /* Optimerer performance */
   will-change: transform;
   animation: fish3 12s linear infinite;
 }
@@ -140,6 +173,9 @@
   100% { transform: translateX(calc(100vw + var(--off-fish3))) rotateY(180deg); }
 }
 
+/* ---------------------------------------------------------
+Fisk 4 (mindre fisk) 
+--------------------------------------------------------- */
 .fish4 {
   position: absolute;
   bottom: 70vh;
@@ -156,6 +192,9 @@
   100% { transform: translateX(calc(100vw + var(--off-fish4))) rotateY(180deg); }
 }
 
+/* ---------------------------------------------------------
+Fisk 5 (haj - større og lidt anderledes bevægelse)
+--------------------------------------------------------- */
 .fish5 {
   position: absolute;
   bottom: 30vh;
@@ -165,6 +204,8 @@
   left: calc(-1 * var(--off-fish5));
   will-change: transform;
   animation: fish5 20s linear infinite;
+  
+  /* Blur kan bruges til dybde-effekt */
   filter: blur(0px);  
 }
 
@@ -174,6 +215,9 @@
   100% { transform: translateX(0); }
 }
 
+/* ---------------------------------------------------------
+Tang (stationære elementer)
+--------------------------------------------------------- */
 .fish6 {
   position: absolute;
   bottom: 70vh;
@@ -210,6 +254,9 @@ position: absolute;
   z-index: 1;
 }
 
+/* ---------------------------------------------------------
+Tooltip (info-boks ved hover)
+--------------------------------------------------------- */
 .tooltip {
    position: fixed;
    right: 16px;
@@ -222,14 +269,20 @@ position: absolute;
    line-height: 1.35;
    max-width: min(320px, 90vw);
    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+   
+   /* Skjult som standard */
    opacity: 0;
    transform: translateY(8px);
+   
+   /* Animation når den vises */
    transition: opacity 0,25s ease, transform 0,25s ease;
+   
+   /* Pointer-event gør at tooltip ikke forstyrrer musen */
    pointer-events: none; 
-   /* pointer events none så den ikke fanger når du flytter musen henover*/
    z-index: 1000;
 }
 
+/* Når tooltip er aktiv */
 .tooltip.is-visible {
    opacity: 1;
    transform: translateY(0);
