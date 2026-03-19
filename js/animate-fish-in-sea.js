@@ -11,7 +11,7 @@ const fiskeinfo =  [
 
     {
        className: "fish2",
-        info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
+        info: "Klovnefisk er små, orange fisk med hvide striber, ligesom Nemo! De bor i noget der hedder søanemoner, som faktisk kan være farlige for andre fisk",
         
     },
 
@@ -26,6 +26,10 @@ const fiskeinfo =  [
         info: "Et sjovt fact omkring søshesten som du måske ikke vidste, er at det er den mandlige søhest der bærer børnene",
         
     },
+    {
+        className: "fish5",
+        info: "Hej, Haj! Hajer er nogle af havets sejeste rovdyr. De har eksisteret i over 400 millioner år, altså før dinosaurerne gik på jorden"
+    }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
