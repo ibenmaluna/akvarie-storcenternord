@@ -189,8 +189,6 @@ position: absolute;
   z-index: 1;
 }
 
-
-
 .tooltip {
    position: fixed;
    right: 16px;
