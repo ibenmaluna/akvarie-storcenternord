@@ -128,7 +128,7 @@
   bottom: 60vh;
   width: var(--fish-w);
   max-width: 28vw;
-  z-index: 1;
+  z-index: 2;
   left: calc(-1 * var(--off-fish3));
   will-change: transform;
   animation: fish3 8s linear infinite;
@@ -144,7 +144,7 @@
   bottom: 70vh;
   width: var(--fish-w);
   max-width: 10vw;
-  z-index: 1;
+  z-index: 2;
   left: calc(-1 * var(--off-fish4));
   will-change: transform;
   animation: fish4 15s linear infinite;  
@@ -157,17 +157,19 @@
 
 .fish5 {
   position: absolute;
-  bottom: 70vh;
+  bottom: 40vh;
   width: var(--fish-w);
-  max-width: 10vw;
-  z-index: 1;
+  max-width: 25vw;
+  z-index: 3;
   left: calc(-1 * var(--off-fish5));
   will-change: transform;
-  animation: fish5 15s linear infinite;  
+  animation: fish5 20s linear infinite;
+  filter: blur(0px);  
 }
 
 @keyframes fish5 {
   0%   { transform: translateX(calc(100vw + var(--off-fish5))); }
+  50%  { transform: translateX(60vw) translateY(-20px); }
   100% { transform: translateX(0); }
 }
 
