@@ -167,8 +167,8 @@
 }
 
 @keyframes fish5 {
-  0%   { transform: translateX(0) rotateY(180deg); }
-  100% { transform: translateX(calc(100vw + var(--off-fish5))) rotateY(180deg); }
+  0%   { transform: translateX(calc(100vw + var(--off-fish5))); }
+  100% { transform: translateX(0); }
 }
 
 .tang1 {
