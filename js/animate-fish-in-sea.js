@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // fjerner/skjuler css klassen fra tooltip elementet- is-visible, efter 8 sek
                 tooltip.classList.remove("is-visible");
 
-            }, 8000);
+            }, 10000);
         }
     }
 
@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
 document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
-//   tilføjer en addeventlistener til hvert element som musen føres henover (mouseover)     
-    elem.addEventListener("mouseover", ()=> {
+//   tilføjer en addeventlistener til hvert element som bliver klikket (click)     
+    elem.addEventListener("click", ()=> {
                 // opretter en HTML-blok indeholdende fiskens detaljer 
               const fishDetails = `
             <strong>${fish.info}</strong>
