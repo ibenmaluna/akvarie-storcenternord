@@ -1,10 +1,13 @@
 "use strict";
+// Sørger for at JavaScript kører i "strict mode" (færre fejl og bedre praksis)
 
-// når man skal lave en liste (array) i javascript skal man lave skarp parantes
-//  her opbygger vi vores js datastruktur med arrayr indeholdene js objecter
+// ---------------------------------------------------------
+// DATA (array med objekter)
+// Indeholder info om hver fisk
+// ---------------------------------------------------------
 const fiskeinfo =  [
     {
-        className: "fish1",
+        className: "fish1", // Matcher CSS class
         info: "Denne fisk er smuk, med alle sine flotte farver. Den elsker at gemme sig i de høje tangbunker",
         
     },
@@ -32,48 +35,64 @@ const fiskeinfo =  [
     }
 ];
 
+// ---------------------------------------------------------
+// DOMContentLoaded
+// Kører først når hele HTML'en er loaded
+// ---------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Finder tooltip element i HTML
     const tooltip = document.getElementById("tooltip");
-    // finder tooltip id attirubten fra DOM og gemmer i en variabel
 
-    // funktion der viser tooltip med fiskeinfo 
-    
+    // ---------------------------------------------------------
+    // Funktion: viser tooltip med tekst
+    // ---------------------------------------------------------
     function showTooltip(html) {
-        // tjekker om tooltip-elementet eksisterer i DOM´ en 
+        
+        // Tjekker om tooltip-elementet eksisterer i DOM´ en 
         if(tooltip){
-            // indsætter tekst i tooltip elementet
+            
+            // Indsætter tekst i tooltip elementet
             tooltip.innerHTML = html
-            // gør tooltip elementet synligt med css-klassen - is-visible
+            
+            // Gør tooltip elementet synligt med CSS-klassen: is-visible
             tooltip.classList.add("is-visible");
-        //    sætter en timer til at skjule tooltip elementer efter 8 sek
+            
+            // Sætter en timer til at skjule tooltip elementer efter 8 sek
             setTimeout(function(){
-                // fjerner/skjuler css klassen fra tooltip elementet- is-visible, efter 8 sek
+                
+                // Skjuler tooltip igen efter 8 sek
                 tooltip.classList.remove("is-visible");
 
             }, 8000);
         }
     }
 
- 
+    // ---------------------------------------------------------
+    // Loop gennem alle fisk og tilføjr hover funktion
+    // ---------------------------------------------------------
     fiskeinfo.forEach((fish)=> {
-        // finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
-document.querySelectorAll("." +fish.className).forEach((elem)=> {
+        
+        // Finder alle elementer med den rigtige class (fish1, fish2 osv.)
+        document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
-//   tilføjer en addeventlistener til hvert element som musen føres henover (mouseover)     
-    elem.addEventListener("mouseover", ()=> {
-                // opretter en HTML-blok indeholdende fiskens detaljer 
-              const fishDetails = `
-            <strong>${fish.info}</strong>
-`;
-                showTooltip(fishDetails);
-
+        // Når musen holdes over fisken
+        elem.addEventListener("mouseover", ()=> {
+                
+            // Opretter HTML med fiskens info
+            const fishDetails = `
+                <strong>${fish.info}</strong>
+            `;
+            
+            // Viser tooltip med info
+            showTooltip(fishDetails);
             });
         });
     });
 
-  /* Hente Alle DOM-elementer */
-
+// ---------------------------------------------------------
+// Hent HTML elementer (fisk + kiste)
+// ---------------------------------------------------------
 const getRegnbueFisk = document.querySelector("#regnbuefisk");
 const getNemoFisk = document.querySelector("#nemofisk");
 const getBlåFisk = document.querySelector("#blåfisk");
@@ -85,24 +104,22 @@ const kisteLyd = document.querySelector("#kiste");
 
 
 
-    /* Oprette lydobjekter */
+// ---------------------------------------------------------
+// Opret lyd-objekter (en lyd pr. fisk)
+// ---------------------------------------------------------
+const soundRegnbueFisk = new Audio("../sound/regnbuefisk-bobler.wav");
+const soundNemoFisk = new Audio("../sound/nemofisk-bobler.wav");
+const soundBlåFisk = new Audio("../sound/bluefisk-bobler.wav");
+const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
+const soundHaj = new Audio("../sound/haj-bobler.wav");
+const soundKiste = new Audio("../sound/kiste-kor.wav");
 
-    const soundRegnbueFisk = new Audio("../sound/regnbuefisk-bobler.wav");
-   
-    const soundNemoFisk = new Audio("../sound/nemofisk-bobler.wav");
-    
-    const soundBlåFisk = new Audio("../sound/bluefisk-bobler.wav");
-
-    const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
-
-    const soundHaj = new Audio("../sound/haj-bobler.wav");
-
-    const soundKiste = new Audio("../sound/kiste-kor.wav");
-
-
+// ---------------------------------------------------------
+// Event listeners (klik på fisk → afspil lyd)
+// ---------------------------------------------------------
     if (getRegnbueFisk) {
         getRegnbueFisk.addEventListener("click", () => {
-            soundRegnbueFisk.currentTime = 0;
+            soundRegnbueFisk.currentTime = 0; // Starter forfra
             soundRegnbueFisk.play();
         });
     }
@@ -134,21 +151,25 @@ const kisteLyd = document.querySelector("#kiste");
             soundHaj.play();
         });
     }
-
+// ---------------------------------------------------------
+// Kiste funktion (åben/luk + lyd)
+// ---------------------------------------------------------
     kiste.addEventListener("click", function(){
+        // Hvis kisten er åben
         if(kiste.src.endsWith("img/aaben-kiste.png")) {
-            // Kisten er åben -> luk den og stop lyden
+            
+            // Luk kisten
             kiste.src="img/lukket-kiste.png"
 
-            // Lyden stoppes/pauses når kisten lukker
+            // Stop lyden
             soundKiste.pause();
             soundKiste.currentTime = 0;
         }
         else{
-            // Kisten er lukket -> åbn den og start lyden
+            // Åbn kisten
             kiste.src="img/aaben-kiste.png";
         
-        // Afspiller lyd når kisten åbner
+        // Start lyd
         soundKiste.currentTime = 0; // Lyden starter så snart man trykker på kisten
         soundKiste.play();
         }
