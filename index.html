@@ -5,51 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sea Animations</title>
 
+    <!-- Link til CSS -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- opbyg HTML struktur her -->
+    <!-- Opbyg HTML struktur her: Scene-container (hele undervandsmiljøet) -->
     <section class="scene">
+      
+      <!-- Baggrund og alle elementer i scenen -->
       <div class="bg">
+
+        <!-- Regnbuefisk -->
         <img
           src="img/regnbuefisk.gif"
           alt="regnbue fisk"
           class="fish1"
           id="regnbuefisk"
         />
+
+        <!-- Nemo fisk -->
         <img
           src="img/nemo-fisk.gif"
           alt="nemo fisk"
           class="fish2"
           id="nemofisk"
         />
+
+        <!-- Blå fisk -->
         <img
           src="img/blue-fish.gif"
           alt="blå fisk"
           class="fish3"
           id="blåfisk"
         />
-        <img src="img/seahorse.gif" alt="søhest" class="fish4" id="søhest" />
-         
+
+        <!-- Søhest -->
+        <img 
+          src="img/seahorse.gif" 
+          alt="søhest"
+          class="fish4" 
+          id="søhest" 
+        />
+
+        <!-- Haj -->
         <img
           src="img/haj.gif"
           alt="haj"
           class="fish5"
           id="haj"
         />
+
+        <!-- Grøn tang (ikke klikbar) -->
         <img
           src="img/green-tang.gif"
           alt="grøn tang"
           class="tang1"
           id="grøntang"
         />
+
+        <!-- Lyserød tang (ikke klikbar) -->
         <img
           src="img/pink-tang.gif"
           alt="lyserød tang"
           class="tang2"
           id="lyserødtang"
         />
-        <!-- Kisterne lægges her -->
+
+        <!-- Kisten -->
         <img
           src="img/lukket-kiste.png"
           alt="lukket kiste"
@@ -64,8 +86,11 @@
         >
     </div>
     </section>
+
+    <!-- Tooltip boks (vises når man hover over fisken) -->
     <div id="tooltip" class="tooltip"></div>
-    <!-- indsæt link her til eksternt javascript -->
+    
+    <!-- Link til JavaScript -->
     <script src="js/animate-fish-in-sea.js"></script>
   </body>
 </html>
