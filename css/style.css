@@ -261,11 +261,11 @@ Tooltip (info-boks ved hover)
    position: fixed;
    right: 16px;
    bottom: 16px;
-   background-color: rgba(0,0,0,0.85);
-   color: #fff;
-   padding: 10px 12px;
+   background-color: rgba(27, 141, 182, 0.85);
+   color: #dea7cb;
+   padding: 20px 24px;
    border-radius: 8px;
-   font-size: 14px;
+   font-size: 22px;
    line-height: 1.35;
    max-width: min(320px, 90vw);
    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
@@ -273,11 +273,13 @@ Tooltip (info-boks ved hover)
    /* Skjult som standard */
    opacity: 0;
    transform: translateY(8px);
+   transition: opacity 0.25s ease, transform 0.25s ease;
    
    /* Animation når den vises */
    transition: opacity 0,25s ease, transform 0,25s ease;
    
    /* Pointer-event gør at tooltip ikke forstyrrer musen */
+
    pointer-events: none; 
    z-index: 1000;
 }
