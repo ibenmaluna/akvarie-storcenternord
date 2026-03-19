@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
         document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
-        // Tilføjer en addeventlistener til hvert element som bliver klikket (click)     
+        // CLICK Tilføjer en addeventlistener til hvert element som bliver klikket (click)     
         elem.addEventListener("click", ()=> {
                 
             // Opretter en HTML-blok indeholdende fiskens detaljer 
@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <strong>${fish.info}</strong>
                 `;
                 showTooltip(fishDetails);
+            });
 
-        // Når musen holdes over fisken
+        // MOUSEOVER Når musen holdes over fisken
         elem.addEventListener("mouseover", ()=> {
                 
             // Opretter HTML med fiskens info
