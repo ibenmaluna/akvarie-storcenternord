@@ -74,45 +74,61 @@ document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
   /* Hente Alle DOM-elementer */
 
-const regnbuefisk = document.querySelector("#regnbuefisk");
-const nemofisk = document.querySelector("#nemofisk");
-const blåfisk = document.querySelector("#blåfisk");
-const søhest = document.querySelector("#søhest");
+const getRegnbueFisk = document.querySelector("#regnbuefisk");
+const getNemoFisk = document.querySelector("#nemofisk");
+const getBlåFisk = document.querySelector("#blåfisk");
+const getSøhest = document.querySelector("#søhest");
+const getHaj = document.querySelector("#haj");
 const kiste = document.querySelector("#kiste");
+
 
 
 
     /* Oprette lydobjekter */
 
-    const soundRedCar = new Audio();
-    soundRedCar.src = "../sound/redCarHorn.wav";
-    const soundPoliceCar = new Audio();
-    soundPoliceCar.src = "../sound/policeCarSound.wav";
-    const soundBlueCar = new Audio();
-    soundBlueCar.src = "../sound/blueCarSound.wav";
+    const soundRegnbueFisk = new Audio("../sound/regnbuefisk-bobler.wav");
+   
+    const soundNemoFisk = new Audio("../sound/nemofisk-bobler.wav");
+    
+    const soundBlåFisk = new Audio("../sound/bluefisk-bobler.wav");
+
+    const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
+
+    const soundHaj = new Audio("../sound/haj-bobler.wav");
 
 
-    if (regnbuefisk) {
-        regnbuefisk.addEventListener("click", () => {
-            regnbuefisk.play();
+    if (getRegnbueFisk) {
+        getRegnbueFisk.addEventListener("click", () => {
+            soundRegnbueFisk.currentTime = 0;
+            soundRegnbueFisk.play();
         });
     }
 
-    if (nemofisk) {
-        nemofisk.addEventListener("click", () => {
-            nemofisk.play();
+    if (getNemoFisk) {
+        getNemoFisk.addEventListener("click", () => {
+            soundNemoFisk.currentTime = 0;
+            soundNemoFisk.play();
         });
     }
 
-    if (blåfisk) {
-        blåfisk.addEventListener("click", () => {
-            blåfisk.play();
+    if (getBlåFisk) {
+        getBlåFisk.addEventListener("click", () => {
+            soundBlåFisk.currentTime = 0;
+            soundBlåFisk.play();
         });
     }
 
-      if (søhest) {
-        søhest.addEventListener("click", () => {
-            søhest.play();
+      if (getSøhest) {
+        getSøhest.addEventListener("click", () => {
+            soundSøhest.currentTime = 0;
+            soundSøhest.play();
+        });
+    }
+
+    if (getHaj) {
+        getHaj.addEventListener("click", () => {
+            soundHaj.currentTime = 0;
+            soundHaj.play();
         });
     }
 
