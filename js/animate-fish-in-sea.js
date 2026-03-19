@@ -80,6 +80,7 @@ const getBlåFisk = document.querySelector("#blåfisk");
 const getSøhest = document.querySelector("#søhest");
 const getHaj = document.querySelector("#haj");
 const kiste = document.querySelector("#kiste");
+const kisteLyd = document.querySelector("#kiste");
 
 
 
@@ -95,6 +96,8 @@ const kiste = document.querySelector("#kiste");
     const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
 
     const soundHaj = new Audio("../sound/haj-bobler.wav");
+
+    const soundKiste = new Audio("../sound/kiste-kor.wav");
 
 
     if (getRegnbueFisk) {
@@ -132,15 +135,23 @@ const kiste = document.querySelector("#kiste");
         });
     }
 
-
     kiste.addEventListener("click", function(){
         if(kiste.src.endsWith("img/aaben-kiste.png")) {
+            // Kisten er åben -> luk den og stop lyden
             kiste.src="img/lukket-kiste.png"
+
+            // Lyden stoppes/pauses når kisten lukker
+            soundKiste.pause();
+            soundKiste.currentTime = 0;
         }
         else{
+            // Kisten er lukket -> åbn den og start lyden
             kiste.src="img/aaben-kiste.png";
+        
+        // Afspiller lyd når kisten åbner
+        soundKiste.currentTime = 0; // Lyden starter så snart man trykker på kisten
+        soundKiste.play();
         }
-      
     });
 });
 
