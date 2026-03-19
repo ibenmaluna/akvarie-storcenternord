@@ -28,7 +28,7 @@ const fiskeinfo =  [
     },
     {
         className: "fish5",
-        info: "Hajer er nogle af havets sejeste rovdyr!De har eksisteret i over 400 millioner år, altså før dinosaurerne"
+        info: "Hej, Haj! Hajer er nogle af havets sejeste rovdyr. De har eksisteret i over 400 millioner år, altså før dinosaurerne gik på jorden"
     }
 ];
 
