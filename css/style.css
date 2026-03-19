@@ -111,12 +111,11 @@
   max-width: 28vw;
   z-index: 1;
   right: calc(-1 * var(--off-fish2));
-  animation: fish2 12s linear infinite;
+  animation: fish2 16s linear infinite;
 }
 
 @keyframes fish2 {
   0%   { transform: translateX(0) rotateY(180deg); }
-  90%,
   100% { transform: translateX(calc(-100vw - var(--off-fish2))) rotateY(180deg); }
 }
 
@@ -127,7 +126,7 @@
   position: absolute;
   bottom: 60vh;
   width: var(--fish-w);
-  max-width: 28vw;
+  max-width: 20vw;
   z-index: 2;
   left: calc(-1 * var(--off-fish3));
   will-change: transform;
@@ -158,8 +157,8 @@
 .fish5 {
   position: absolute;
   bottom: 40vh;
-  width: var(--fish-w);
-  max-width: 25vw;
+  width: 25vw;
+  max-width: none;
   z-index: 3;
   left: calc(-1 * var(--off-fish5));
   will-change: transform;
