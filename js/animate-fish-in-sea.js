@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Sætter en timer til at skjule tooltip elementer efter 8 sek
             setTimeout(function(){
                 
-                // Skjuler tooltip igen efter 8 sek
+                // Skjuler tooltip igen efter 10 sek
                 tooltip.classList.remove("is-visible");
 
             }, 10000);
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 showTooltip(fishDetails);
             });
 
-        // MOUSEOVER Når musen holdes over fisken
-        elem.addEventListener("mouseover", ()=> {
+       
+        elem.addEventListener("click", ()=> {
                 
             // Opretter HTML med fiskens info
             const fishDetails = `
@@ -109,7 +109,6 @@ const getBlåFisk = document.querySelector("#blåfisk");
 const getSøhest = document.querySelector("#søhest");
 const getHaj = document.querySelector("#haj");
 const kiste = document.querySelector("#kiste");
-const kisteLyd = document.querySelector("#kiste");
 
 
 
@@ -184,16 +183,24 @@ const soundKiste = new Audio("../sound/kiste-kor.wav");
         soundKiste.play();
         }
     });
-});
+
 
 // klik på ok og pop vinduet forsvinder
-const overlay = document.getElementById("overlay");
-const okBtn = document.getElementById("okBtn");
+    const overlay = document.getElementById("overlay");
+    const okBtn = document.getElementById("okBtn");
+    const soundOkBtn = new Audio("../sound/seahorse-bobler.wav"); // NY LYD TIL OK-KNAPPEN (ændring)
 
-okBtn.addEventListener("click", () => {
-    overlay.style.display = "none";
+    if (okBtn) {
+        okBtn.addEventListener("click", () => {
+            overlay.style.display = "none";
+            // Afspil lyd når OK klikkes (ændring)
+            soundOkBtn.currentTime = 0;
+            soundOkBtn.play();
+        });
+    }
 });
 
   
+
 
 
