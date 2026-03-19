@@ -70,27 +70,28 @@ document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
   /* Hente Alle DOM-elementer */
 
-const regnbuefisk = document.querySelector("#regnbuefisk");
-const nemofisk = document.querySelector("#nemofisk");
-const blåfisk = document.querySelector("#blåfisk");
-const søhest = document.querySelector("#søhest");
+const getRegnbueFisk = document.querySelector("#regnbuefisk");
+const getNemoFisk = document.querySelector("#nemofisk");
+const getBlåFisk = document.querySelector("#blåfisk");
+const getSøhest = document.querySelector("#søhest");
 const kiste = document.querySelector("#kiste");
 
 
 
     /* Oprette lydobjekter */
 
-    const soundRedCar = new Audio();
-    soundRedCar.src = "../sound/redCarHorn.wav";
+    const soundRegnbueFisk = new Audio("../sound/regnbuefisk-bobler.wav");
+   
     const soundPoliceCar = new Audio();
     soundPoliceCar.src = "../sound/policeCarSound.wav";
     const soundBlueCar = new Audio();
     soundBlueCar.src = "../sound/blueCarSound.wav";
 
 
-    if (regnbuefisk) {
-        regnbuefisk.addEventListener("click", () => {
-            regnbuefisk.play();
+    if (getRegnbueFisk) {
+        getRegnbueFisk.addEventListener("click", () => {
+            soundRegnbueFisk.currentTime = 0;
+            soundRegnbueFisk.play();
         });
     }
 
