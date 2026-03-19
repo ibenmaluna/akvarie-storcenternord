@@ -72,15 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Loop gennem alle fisk og tilføjr hover funktion
     // ---------------------------------------------------------
     fiskeinfo.forEach((fish)=> {
-        // finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
-document.querySelectorAll("." +fish.className).forEach((elem)=> {
+        
+        // Finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
+        document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
-//   tilføjer en addeventlistener til hvert element som bliver klikket (click)     
-    elem.addEventListener("click", ()=> {
-                // opretter en HTML-blok indeholdende fiskens detaljer 
+        // Tilføjer en addeventlistener til hvert element som bliver klikket (click)     
+        elem.addEventListener("click", ()=> {
+                
+            // Opretter en HTML-blok indeholdende fiskens detaljer 
               const fishDetails = `
-            <strong>${fish.info}</strong>
-`;
+                    <strong>${fish.info}</strong>
+                `;
                 showTooltip(fishDetails);
 
         // Når musen holdes over fisken
@@ -182,5 +184,3 @@ const soundKiste = new Audio("../sound/kiste-kor.wav");
         }
     });
 });
-
-  
