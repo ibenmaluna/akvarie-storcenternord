@@ -155,4 +155,12 @@ const kisteLyd = document.querySelector("#kiste");
     });
 });
 
+// klik på ok og pop vinduet forsvinder
+const overlay = document.getElementById("overlay");
+const okBtn = document.getElementById("okBtn");
+
+okBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+
   

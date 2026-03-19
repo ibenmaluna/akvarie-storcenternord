@@ -289,3 +289,40 @@ Tooltip (info-boks ved hover)
    opacity: 1;
    transform: translateY(0);
 }
+
+/* design af infoboksen i midten */
+.overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   background-color: rgba(0,0,0,0.4); 
+
+   display: flex;
+   justify-content: center; 
+   align-items: center;     
+
+   z-index: 999;
+}
+
+.infobox {
+   background: rgb(77, 166, 229);
+   padding: 30px;
+   border-radius: 12px;
+   text-align: center;
+
+   max-width: 300px;
+   width: 80%;
+}
+
+button {
+   margin-top: 15px;
+   padding: 8px 16px;
+   border: none;
+   border-radius: 8px;
+   background-color: #1b8db6;
+   color: white;
+   cursor: pointer;
+}
