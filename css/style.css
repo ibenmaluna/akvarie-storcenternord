@@ -108,8 +108,8 @@
 .fish2 {
   position: absolute;
   bottom: 20vh;
-  width: var(--fish-w);
-  max-width: 28vw;
+  width: 9vw;
+  max-width: none;
   z-index: 1;
   right: calc(-1 * var(--off-fish2));
   animation: fish2 16s linear infinite;
@@ -131,7 +131,7 @@
   z-index: 2;
   left: calc(-1 * var(--off-fish3));
   will-change: transform;
-  animation: fish3 8s linear infinite;
+  animation: fish3 12s linear infinite;
 }
 
 @keyframes fish3 {
@@ -142,12 +142,12 @@
 .fish4 {
   position: absolute;
   bottom: 70vh;
-  width: var(--fish-w);
-  max-width: 10vw;
+  width: 6vw;
+  max-width: none;
   z-index: 2;
   left: calc(-1 * var(--off-fish4));
   will-change: transform;
-  animation: fish4 15s linear infinite;  
+  animation: fish4 19s linear infinite;  
 }
 
 @keyframes fish4 {
@@ -157,7 +157,7 @@
 
 .fish5 {
   position: absolute;
-  bottom: 40vh;
+  bottom: 30vh;
   width: 25vw;
   max-width: none;
   z-index: 3;
