@@ -23,6 +23,7 @@ Root-variabler
    --off-fish3: 200px;
    --off-fish4: 200px;
    --off-fish5: 200px;
+   --off-fish6: 200px;
 
 }
 
@@ -217,6 +218,24 @@ Fisk 5 (haj - større og lidt anderledes bevægelse)
 /* ---------------------------------------------------------
 Tang (stationære elementer)
 --------------------------------------------------------- */
+.fish6 {
+  position: absolute;
+  bottom: 70vh;
+  width: 7vw;
+  max-width: none;
+  z-index: 1;
+  left: calc(-1 * var(--off-fish6));
+  will-change: transform;
+  animation: fish6 30s linear infinite;
+  filter: blur(1px); 
+}
+
+@keyframes fish6 {
+  0%   { transform: translateX(calc(100vw + var(--off-fish6))); }
+  50%  { transform: translateX(60vw) translateY(-20px); }
+  100% { transform: translateX(0); }
+}
+
 .tang1 {
 position: absolute;
   bottom: 0;
