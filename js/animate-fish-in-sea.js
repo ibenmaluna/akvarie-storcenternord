@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // gennemløber alle bilobjekter i carinfo-JS-datastrukturen
+ 
     fiskeinfo.forEach((fish)=> {
-        // finder alle DOM elementer med den aktuelle bil class attribut-navn (f.eks. car1,car2,car3)
+        // finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
 document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
 //   tilføjer en addeventlistener til hvert element som musen føres henover (mouseover)     
     elem.addEventListener("mouseover", ()=> {
-                // opretter en HTML-blok indeholdende bilens detaljer 
+                // opretter en HTML-blok indeholdende fiskens detaljer 
               const fishDetails = `
             <strong>${fish.info}</strong>
 `;
@@ -87,21 +87,19 @@ const kiste = document.querySelector("#kiste");
     const soundBlueCar = new Audio();
     soundBlueCar.src = "../sound/blueCarSound.wav";
 
-    /* Tjeck om den røde bil (getRedCar) med ID attributten "redcar" findes i DOM'en */
+
     if (regnbuefisk) {
         regnbuefisk.addEventListener("click", () => {
             regnbuefisk.play();
         });
     }
 
-    /* Tjeck om den Politibilen (getPoliceCar) med ID attributten "policecar" findes i DOM'en */
     if (nemofisk) {
         nemofisk.addEventListener("click", () => {
             nemofisk.play();
         });
     }
 
-    /* Tjeck om den blå bil (getBlueCar) med ID attributten "bluecar" findes i DOM'en */
     if (blåfisk) {
         blåfisk.addEventListener("click", () => {
             blåfisk.play();
