@@ -149,11 +149,11 @@ const kiste = document.querySelector("#kiste");
 // ---------------------------------------------------------
 // Opret lyd-objekter (en lyd pr. fisk)
 // ---------------------------------------------------------
-const soundRegnbueFisk = new Audio("../sound/regnbuefisk-bobler.wav");
-const soundNemoFisk = new Audio("../sound/nemofisk-bobler.wav");
-const soundBlåFisk = new Audio("../sound/bluefisk-bobler.wav");
-const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
-const soundHaj = new Audio("../sound/haj-bobler.wav");
+const soundRegnbueFisk = new Audio("sound/regnbuefisk-bobler.wav");
+const soundNemoFisk = new Audio("sound/nemofisk-bobler.wav");
+const soundBlåFisk = new Audio("sound/bluefisk-bobler.wav");
+const soundSøhest = new Audio("sound/seahorse-bobler.wav");
+const soundHaj = new Audio("sound/haj-bobler.wav");
 const soundKiste = new Audio("sound/kiste-kor.wav");
 
 // ---------------------------------------------------------
