@@ -124,10 +124,10 @@ function showTooltip(html, x, y) {
 
         showTooltip(fishDetails, x, y);
 
-        // Start igen efter 7 sek
+        // Start igen efter 10 sek
         setTimeout(() => {
             e.target.style.animationPlayState = "running";
-        },7000);
+        },10000);
     });
 
         });
