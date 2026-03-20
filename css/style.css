@@ -259,8 +259,10 @@ Tooltip (info-boks ved hover)
 --------------------------------------------------------- */
 .tooltip {
    position: fixed;
-   right: 16px;
-   bottom: 16px;
+   left: 0;
+   top: 0;
+   /* holder tooltip centreret over fisken */
+   transform: translate(-50%, -100%);
    background-color: rgba(27, 141, 182, 0.85);
    color: #FFFFFF;
    padding: 20px 24px;
@@ -272,11 +274,7 @@ Tooltip (info-boks ved hover)
    
    /* Skjult som standard */
    opacity: 0;
-   transform: translateY(8px);
-   transition: opacity 0.25s ease, transform 0.25s ease;
-   
-   /* Animation når den vises */
-   transition: opacity 0,25s ease, transform 0,25s ease;
+   transition: opacity 0.25s ease;
    
    /* Pointer-event gør at tooltip ikke forstyrrer musen */
 
@@ -287,7 +285,6 @@ Tooltip (info-boks ved hover)
 /* Når tooltip er aktiv */
 .tooltip.is-visible {
    opacity: 1;
-   transform: translateY(0);
 }
 
 /* design af infoboksen i midten */

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---------------------------------------------------------
     // Funktion: viser tooltip med tekst
     // ---------------------------------------------------------
-    function showTooltip(html) {
+    function showTooltip(html, x, y) {
         
         // Tjekker om tooltip-elementet eksisterer i DOM´ en 
         if(tooltip){
@@ -55,14 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
             // Indsætter tekst i tooltip elementet
             tooltip.innerHTML = html
             
+            // Placerer tooltip ved fisken //
+            tooltip.style.left = x + "px";
+            tooltip.style.top = (y - 20) + "px";
+
+            // Skjuler tooltip igen efter 10 sek
+                tooltip.classList.remove("is-visible");
+
             // Gør tooltip elementet synligt med CSS-klassen: is-visible
             tooltip.classList.add("is-visible");
             
             // Sætter en timer til at skjule tooltip elementer efter 8 sek
             setTimeout(function(){
                 
-                // Skjuler tooltip igen efter 10 sek
-                tooltip.classList.remove("is-visible");
+               
 
             }, 10000);
         }
@@ -76,27 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // Finder alle DOM elementer med den aktuelle fisk class attribut-navn (f.eks. fish1,fish2,fish3)
         document.querySelectorAll("." +fish.className).forEach((elem)=> {
 
-        // CLICK Tilføjer en addeventlistener til hvert element som bliver klikket (click)     
-        elem.addEventListener("click", ()=> {
-                
-            // Opretter en HTML-blok indeholdende fiskens detaljer 
-              const fishDetails = `
-                    <strong>${fish.info}</strong>
-                `;
-                showTooltip(fishDetails);
-            });
+    elem.addEventListener("click", (e) => {
+    
+        const fishDetails = `
+        <strong>${fish.info}</strong>
+     `;
 
-       
-        elem.addEventListener("click", ()=> {
-                
-            // Opretter HTML med fiskens info
-            const fishDetails = `
-                <strong>${fish.info}</strong>
-            `;
-            
-            // Viser tooltip med info
-            showTooltip(fishDetails);
-            });
+    // Hent position på fisken
+     const rect = e.target.getBoundingClientRect();
+
+     const x = rect.left + rect.width / 2;
+     const y = rect.top;
+
+        showTooltip(fishDetails, x, y);
+    });
+
         });
     });
 
