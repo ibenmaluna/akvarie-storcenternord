@@ -47,32 +47,57 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---------------------------------------------------------
     // Funktion: viser tooltip med tekst
     // ---------------------------------------------------------
-    function showTooltip(html, x, y) {
-        
-        // Tjekker om tooltip-elementet eksisterer i DOM´ en 
-        if(tooltip){
-            
-            // Indsætter tekst i tooltip elementet
-            tooltip.innerHTML = html
-            
-            // Placerer tooltip ved fisken //
-            tooltip.style.left = x + "px";
-            tooltip.style.top = (y - 20) + "px";
+function showTooltip(html, x, y) {
+    
+    if (tooltip) {
+        tooltip.innerHTML = html;
 
-            // Skjuler tooltip igen efter 10 sek
-                tooltip.classList.remove("is-visible");
+        // Reset + vis
+        tooltip.classList.remove("is-visible");
 
-            // Gør tooltip elementet synligt med CSS-klassen: is-visible
-            tooltip.classList.add("is-visible");
-            
-            // Sætter en timer til at skjule tooltip elementer efter 8 sek
-            setTimeout(function(){
-                
-               
+        // Midlertidig placering
+        tooltip.style.left = x + "px";
+        tooltip.style.top = (y - 20) + "px";
 
-            }, 10000);
-        }
+        tooltip.classList.add("is-visible");
+
+        // Vent på rendering før vi måler
+        requestAnimationFrame(() => {
+
+            const rect = tooltip.getBoundingClientRect();
+
+            const width = tooltip.offsetWidth;
+            const height = tooltip.offsetHeight;
+
+            let newX = x;
+            let newY = y - 20;
+
+            // Hvis den går ud til højre
+          if (x + width / 2 > window.innerWidth - 10) {
+                newX = window.innerWidth - width / 2 - 10;
+            }
+
+            // Hvis den går ud til venstre
+             if (x - width / 2 < 10) {
+                newX = width / 2 + 10;
+            }
+
+            // Hvis den går op over toppen
+        if (y - height < 10) {
+                newY = y + height + 10; // vis under fisken
+            }
+
+            tooltip.style.left = newX + "px";
+            tooltip.style.top = newY + "px";
+
+        });
+
+        // Skjul efter 10 sek
+        setTimeout(() => {
+            tooltip.classList.remove("is-visible");
+        }, 10000);
     }
+}
 
     // ---------------------------------------------------------
     // Loop gennem alle fisk og tilføjr hover funktion
@@ -94,7 +119,15 @@ document.addEventListener("DOMContentLoaded", () => {
      const x = rect.left + rect.width / 2;
      const y = rect.top;
 
+    // Stop fisken når den trykkes på
+    e.target.style.animationPlayState = "paused";
+
         showTooltip(fishDetails, x, y);
+
+        // Start igen efter 7 sek
+        setTimeout(() => {
+            e.target.style.animationPlayState = "running";
+        },7000);
     });
 
         });
