@@ -293,23 +293,30 @@ Tooltip (info-boks ved hover)
 /* design af infoboksen i midten */
 .overlay {
    position: fixed;
+   /* position gør at elementet bliver låst fast til skærmen, også når man scroller */
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
 
    background-color: rgba(0,0,0,0.4); 
+   /* Sort farve med gennemsigtighed (0.4)
+      Det giver den der “mørke film” effekt
+ */
 
    display: flex;
+   /* Gør det muligt at centrere indhold */
    justify-content: center; 
    align-items: center;     
 
    z-index: 999;
+   /* Sørger for at den ligger øverst over alt andet */
 }
 
 .infobox {
    background: rgb(77, 166, 229);
    padding: 30px;
+   /* padding giver luft inde i boksen (afstand til kanten) */
    border-radius: 12px;
    text-align: center;
 
@@ -322,7 +329,9 @@ button {
    padding: 8px 16px;
    border: none;
    border-radius: 8px;
+   /* Runde hjørner */
    background-color: #1b8db6;
    color: white;
    cursor: pointer;
+   /* Musen bliver til en hånd → viser den er klikbar */
 }

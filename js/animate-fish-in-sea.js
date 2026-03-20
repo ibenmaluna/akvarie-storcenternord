@@ -121,7 +121,7 @@ const soundNemoFisk = new Audio("../sound/nemofisk-bobler.wav");
 const soundBlåFisk = new Audio("../sound/bluefisk-bobler.wav");
 const soundSøhest = new Audio("../sound/seahorse-bobler.wav");
 const soundHaj = new Audio("../sound/haj-bobler.wav");
-const soundKiste = new Audio("../sound/kiste-kor.wav");
+const soundKiste = new Audio("sound/kiste-kor.wav");
 
 // ---------------------------------------------------------
 // Event listeners (klik på fisk → afspil lyd)
