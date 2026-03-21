@@ -26,7 +26,7 @@ const fiskeinfo =  [
 
      {
        className: "fish4",
-        info: "Et sjovt fact omkring søshesten som du måske ikke vidste, er at det er den mandlige søhest der bærer børnene",
+        info: "Et sjovt fact omkring søhesten som du måske ikke vidste, er at det er den mandlige søhest der bærer børnene",
         
     },
     {
